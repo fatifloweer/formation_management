@@ -12,12 +12,12 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 	@Entity
-	@Table(name = "personnes")
+	@Table(name = "personne")
 	@Inheritance(strategy = InheritanceType.JOINED)
 	public class Personnes {
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private int id;
+	    private Long id;
 	    private String nom;
 	    private String prenom;
 	    private String email;
@@ -42,11 +42,11 @@ import jakarta.persistence.Table;
 			this.mobile = mobile;
 		}
 
-		public int getId() {
+		public Long getId() {
 			return id;
 		}
 
-		public void setId(int id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 

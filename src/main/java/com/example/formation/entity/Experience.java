@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+//@Data
 @Entity
 public class Experience {
 	
@@ -19,16 +20,19 @@ public class Experience {
 	private String company;
 	
     @ManyToOne
+    @JoinColumn(name = "developer_id")
     private Developer developer;
 	
-	public Experience(Date date_debut, Date date_fin, String company) {
+	 public Experience(int id, Date date_debut, Date date_fin, String company, Developer developer) {
 		super();
+		this.id = id;
 		this.date_debut = date_debut;
 		this.date_fin = date_fin;
 		this.company = company;
+		this.developer = developer;
 	}
-	
-	 public Experience() {
+
+	public Experience() {
 	        // Default no-argument constructor
 	    }
 
@@ -62,6 +66,14 @@ public class Experience {
 
 	public void setCompany(String company) {
 		this.company = company;
+	}
+
+	public Developer getDeveloper() {
+		return developer;
+	}
+
+	public void setDeveloper(Developer developer) {
+		this.developer = developer;
 	}
 	
 	
